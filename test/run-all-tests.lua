@@ -4,4 +4,3 @@
 -- 		assert.are.equal(vim.opt.number:get(), true) -- Example setting
 -- 	end)
 -- end)
-local nums = vim.opt.number:get()
