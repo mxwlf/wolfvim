@@ -2,9 +2,9 @@ name: CI Build
 
 on:
   push:
-    branches: [ "main", "develop"]
+    branches: [ "develop"]
   pull_request:
-    branches: [ "main", "develop" ]
+    branches: [ "main" ]
   workflow_dispatch: # This allows the workflow to be triggered manually
 
 jobs:
@@ -25,10 +25,13 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y \
             luarocks \
-            neovim \
+            neovim=0.11.0 \
             curl
           sudo luarocks install luacheck
           sudo luarocks install busted
 
+    - name: check vim version
+      run: nvim -v
+      
     - name: Run make
       run: make
