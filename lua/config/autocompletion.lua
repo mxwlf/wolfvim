@@ -7,7 +7,8 @@
 --  end,
 --})
 -- vim.cmd[[set completeopt+=menuone,noselect,popup]]
-vim.opt.completeopt:append({ "menuone", "noselect", "popup" })
+-- vim.opt.completeopt:append({ "menuone", "noselect", "popup" })
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
 
 -- Autocompletions from LSP
 vim.api.nvim_create_autocmd('LspAttach', {
