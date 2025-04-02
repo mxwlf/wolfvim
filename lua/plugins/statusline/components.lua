@@ -10,8 +10,9 @@ return {
   },
   git_repo = {
     function()
-      if #vim.api.nvim_list_tabpages() > 1 and vim.fn.trim(vim.fn.system "git rev-parse --is-inside-work-tree") == "true" then
-        return vim.fn.trim(vim.fn.system "basename `git rev-parse --show-toplevel`")
+      if #vim.api.nvim_list_tabpages() > 1
+	and vim.fn.trim(vim.fn.system "git rev-parse --is-inside-work-tree") == "true" then
+		return vim.fn.trim(vim.fn.system "basename `git rev-parse --show-toplevel`")
       end
       return ""
     end,
@@ -39,7 +40,7 @@ return {
   lsp_client = {
     function(msg)
       msg = msg or ""
-      local buf_clients = vim.lsp.get_active_clients { bufnr = 0 }
+      local buf_clients = vim.lsp.get_clients { bufnr = 0 }
 
       if next(buf_clients) == nil then
         if type(msg) == "boolean" or #msg == 0 then
